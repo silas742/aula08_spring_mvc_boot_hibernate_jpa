@@ -20,7 +20,7 @@ public class InsereUmVeiculo {
 		v.setCor("Azul");
 		v.setMarca("Sedan");
 		v.setModelo("palio");
-		v.setPlaca("a2b215w");
+		//v.setPlaca("a2b215w");
 		//salva no banco
 		manager.persist(v);
 		// manda para o banco
