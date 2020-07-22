@@ -1,11 +1,15 @@
 package com.example.demo.model.bean;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,6 +27,29 @@ public class Veiculo {
 	private String ano;
 	@Column(nullable = true, length = 50)
 	private String cor;
+
+	//@ManyToMany
+	//private List <Reboque> reboque;
+	
+	@OneToOne (mappedBy = "veiculo")
+	private  Locadora locadora;
+	
+	
+	public Locadora getLocadora() {
+		return locadora;
+	}
+
+	public void setLocadora(Locadora locadora) {
+		this.locadora = locadora;
+	}
+
+	//public List<Reboque> getReboque() {
+	//	return reboque;
+	//}
+
+	//public void setReboque(List<Reboque> reboque) {
+	//	this.reboque = reboque;
+	//}
 
 	@OneToOne
 	@JoinColumn(name = "ID_Placa")
