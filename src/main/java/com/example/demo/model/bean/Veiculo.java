@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,13 +21,25 @@ public class Veiculo {
 	private String marca;
 
 	private String ano;
-
 	@Column(nullable = true, length = 50)
 	private String cor;
 
 	@OneToOne
 	@JoinColumn(name = "ID_Placa")
 	private Placa placa;
+
+	@ManyToOne
+	private Pessoa pessoa;
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	
 
 	@Override
 	public int hashCode() {

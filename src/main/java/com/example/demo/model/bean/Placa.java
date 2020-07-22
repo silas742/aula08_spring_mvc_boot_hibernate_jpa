@@ -3,7 +3,9 @@ package com.example.demo.model.bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +15,20 @@ public class Placa {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	@Column(nullable = false, length = 30)
 	private String Cidade;
+	
+	@OneToOne(mappedBy="placa")
+	private Veiculo veiculo;
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
 
 	public Long getId() {
 		return id;
